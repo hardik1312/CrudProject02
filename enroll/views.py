@@ -1,7 +1,7 @@
 from django.shortcuts import render, HttpResponseRedirect
 from .forms import StudentRegistration
 from .models import User
-from django.views.generic.base import TemplateView
+from django.views.generic.base import TemplateView, RedirectView
 
 # Create your views here.
 
@@ -41,8 +41,16 @@ def update_data(request, id):
 
 
 #This function will delete
-def delete_data(request, id):
-    if request.method == 'POST':
-        pi = User.objects.get(pk=id)
-        pi.delete()
-        return HttpResponseRedirect('/')
+class UserDeleteView(RedirectView):
+    url = '/'
+    def get_redirect_url(self, *args, **kwargs):
+        del_id = kwargs['id']
+        User.objects.get(pk=del_id).delete()
+        return super().get_redirect_url(*args, **kwargs)
+        
+
+# def delete_data(request, id):
+#     if request.method == 'POST':
+#         pi = User.objects.get(pk=id)
+#         pi.delete()
+#         return HttpResponseRedirect('/')
