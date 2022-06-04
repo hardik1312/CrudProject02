@@ -2,6 +2,7 @@ from django.shortcuts import render, HttpResponseRedirect
 from .forms import StudentRegistration
 from .models import User
 from django.views.generic.base import TemplateView, RedirectView
+from django.views import View
 
 # Create your views here.
 
@@ -27,30 +28,26 @@ class UserAddShowView(TemplateView):
             return HttpResponseRedirect('/')
 
 
-#This funtion will Update/Edit
-def update_data(request, id):
-    if request.method == 'POST':
+#This class will Update/Edit
+class UserUpdateView(View):
+    def get(self, request, id):
+        pi = User.objects.get(pk=id)
+        fm = StudentRegistration(instance=pi)
+        return render(request, 'enroll/updatestudent.html', {'form':fm})
+
+    def post(self, request, id):
         pi = User.objects.get(pk=id)
         fm = StudentRegistration(request.POST, instance=pi)
         if fm.is_valid():
             fm.save()
-    else:
-        pi = User.objects.get(pk=id)
-        fm = StudentRegistration(instance=pi)
-    return render(request, 'enroll/updatestudent.html', {'form':fm})
+        return render(request, 'enroll/updatestudent.html', {'form':fm})
+        #return HttpResponseRedirect('/') (Redirects to home page when you click "update" button.)
 
 
-#This function will delete
+#This class will delete
 class UserDeleteView(RedirectView):
     url = '/'
     def get_redirect_url(self, *args, **kwargs):
         del_id = kwargs['id']
         User.objects.get(pk=del_id).delete()
         return super().get_redirect_url(*args, **kwargs)
-        
-
-# def delete_data(request, id):
-#     if request.method == 'POST':
-#         pi = User.objects.get(pk=id)
-#         pi.delete()
-#         return HttpResponseRedirect('/')
