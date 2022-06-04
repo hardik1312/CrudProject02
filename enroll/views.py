@@ -5,7 +5,7 @@ from django.views.generic.base import TemplateView
 
 # Create your views here.
 
-#This function will add new items and show all items
+#This class will add new items and show all items
 
 class UserAddShowView(TemplateView):
     template_name = 'enroll/addandshow.html'
@@ -16,26 +16,15 @@ class UserAddShowView(TemplateView):
         context = {'stu':stud, 'form':fm}
         return context
 
-
-
-
-
-
-
-# def add_show(request):
-#     if request.method == 'POST':
-#         fm = StudentRegistration(request.POST)
-#         if fm.is_valid():
-#             nm = fm.cleaned_data['name']
-#             em = fm.cleaned_data['email']
-#             pw = fm.cleaned_data['password']
-#             reg = User(name=nm, email=em, password=pw)
-#             reg.save()
-#             fm = StudentRegistration()
-#     else:
-#         fm = StudentRegistration()
-#     stud = User.objects.all()
-#     return render(request, 'enroll/addandshow.html', {'form':fm, 'stu':stud})
+    def post(self, request):
+        fm = StudentRegistration(request.POST)
+        if fm.is_valid():
+            nm = fm.cleaned_data['name']
+            em = fm.cleaned_data['email']
+            pw = fm.cleaned_data['password']
+            reg = User(name=nm, email=em, password=pw)
+            reg.save()
+            return HttpResponseRedirect('/')
 
 
 #This funtion will Update/Edit
