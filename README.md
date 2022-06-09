@@ -30,8 +30,8 @@
 
 
 ## Screenshots
-![Home Page View](https://ibb.co/gFfTF5z)
-![Edit Page View](https://ibb.co/pxhFzfQ)
+![Home Page View](./img/StudentManagementSystem01_Cropped.png)
+![Edit Page View](./img/StudentManagementSystem01_Cropped.png)
 
 ## Usage
 
