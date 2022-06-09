@@ -5,6 +5,7 @@
 * [General Info](#general-information)
 * [Technologies Used](#technologies-used)
 * [Features](#features)
+* [Screenshots](#screenshots)
 * [Usage](#usage)
 * [Project Status](#project-status)
 * [Acknowledgements](#acknowledgements)
@@ -27,6 +28,10 @@
 ## Features
 - It can Create, Read/Retrieve, Update, and Delete data.
 
+
+## Screenshots
+![Home Page View](https://imgur.com/AfzWk6F)
+![Edit Page View](https://imgur.com/lIERpfa)
 
 ## Usage
 
