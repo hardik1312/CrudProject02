@@ -1,5 +1,5 @@
-# CRUD Project
-> Class based view ModelForm CRUD project using Django
+# Student Management System 
+> Class based view Student Management System using Django
 
 ## Table of Contents
 * [General Info](#general-information)
@@ -12,8 +12,8 @@
 
 ## General Information
 - This is a simple CRUD project which can Create, Retrieve, Update, and Delete data.
-- It can help you in keeping a student, employee database.
-- I build this project to learn class based view, and modelForm in django.
+- It can help you in keeping a student database.
+- I built this project to learn class based view, and modelForm in django.
 
 
 ## Technologies Used
