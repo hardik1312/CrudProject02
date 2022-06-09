@@ -30,8 +30,8 @@
 
 
 ## Screenshots
-![Home Page View](https://imgur.com/AfzWk6F)
-![Edit Page View](https://imgur.com/lIERpfa)
+![Home Page View](https://ibb.co/gFfTF5z)
+![Edit Page View](https://ibb.co/pxhFzfQ)
 
 ## Usage
 
